@@ -11,8 +11,8 @@
    
    
 ## 2. External Library
-* Lombok
-* Swagger UI
+* Lombok : 제공되는 여러 Java Annotation을 기반으로 Code를 간결화 하여 개발 생산성 제고
+* Swagger UI : API Resource 시각화
    
    
 ## 3. URLs
@@ -29,7 +29,8 @@ java -jar -Dfile.encoding=UTF-8 search-0.0.1-SNAPSHOT.jar
    
    
 ## 5. API 명세
-
+### 5.1 블로그 검색
+### 5.2 인기 검색어 조회
    
    
 ## 6. Reference
