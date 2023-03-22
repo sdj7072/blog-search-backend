@@ -1,5 +1,7 @@
 package com.example.search.service;
 
+import com.example.search.exception.ErrorCode;
+import com.example.search.exception.SearchApplicationException;
 import com.example.search.model.SearchWord;
 import com.example.search.model.entity.SearchWordEntity;
 import com.example.search.repository.SearchWordEntityRepository;
@@ -27,6 +29,8 @@ public class SearchWordService {
 
     @Transactional
     public void modify(String searchWord, Long searchCount) {
+        this.getSearchWordEntityOrException(searchWord);
+
         searchWordEntityRepository.save(SearchWordEntity.of(searchWord, searchCount));
     }
 
@@ -44,6 +48,11 @@ public class SearchWordService {
         return searchWordEntityRepository.findTop10ByOrderBySearchCountDesc().stream()
                 .map(SearchWord::fromEntity)
                 .collect(Collectors.toList());
+    }
+
+    private SearchWordEntity getSearchWordEntityOrException(String searchWord) {
+        return searchWordEntityRepository.findBySearchWord(searchWord).orElseThrow(() ->
+                new SearchApplicationException(ErrorCode.DUPLICATED_SEARCH_WORD, String.format("%s is duplicated", searchWord)));
     }
 
 }
