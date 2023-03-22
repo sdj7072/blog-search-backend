@@ -25,10 +25,12 @@ java -jar -Dfile.encoding=UTF-8 search-0.0.1-SNAPSHOT.jar
    
 ## 5. API 명세
 ### 5.1 블로그 검색
-* Method : GET
-* URI : /api/vi/search/blog
-* Request
-   * String platform
+<details>
+   <summary> Request 보기/접기 </summary>
+   <div markdown="1">
+   
+      <p>
+            * String platform
       * 검색 Platform을 정의합니다.
       * 기본값 : KAKAO
       * 입력 제한 : KAKAO, NAVER
@@ -46,6 +48,14 @@ java -jar -Dfile.encoding=UTF-8 search-0.0.1-SNAPSHOT.jar
       * 페이지당 조회 결과(블로그 검색수)를 정의합니다.
       * 기본값 : 10
       * 입력 제한 : 최소 1, 최대 50
+      </p>
+      
+   </div>
+</details>
+* Method : GET
+* URI : /api/vi/search/blog
+* Request
+
 * Response
 
    
